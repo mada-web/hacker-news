@@ -10,13 +10,11 @@ export const getIds = async () => {
       { json: true }
     )
     const getDataPromises = responseId.body
-      .slice(0, 10)
+      .slice(0, 30)
       .map((el) => getDataById(el))
     const newsData = await Promise.all(getDataPromises)
-    console.log(
-      '🚀 ~ file: getIds.js ~ line 14 ~ getIds ~ weatherData',
-      newsData
-    )
+    console.log('🚀 ~ file: getIds.js ~ line 16 ~ getIds ~ newsData', newsData)
+
     return newsData
   } catch (error) {
     console.log('Call the locksmith!')

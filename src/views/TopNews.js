@@ -1,46 +1,21 @@
-// import { getDataById } from '../utils/getDataById'
 import { getIds } from '../utils/getIds'
+import Item from '../components/NewsItems'
 import { useEffect, useState } from 'react'
 
 export const TopNews = () => {
-  const [news, setNews] = useState('')
+  const [newsList, setNewsList] = useState('')
 
   useEffect(() => {
     ;(async () => {
-      const {
-        by,
-        descendants,
-        id,
-        kids,
-        score,
-        time,
-        title,
-        type,
-        url,
-      } = await getIds()
+      const data = await getIds()
 
-      const updateNews = {
-        by,
-        descendants,
-        id,
-        kids,
-        score,
-        time,
-        title,
-        type,
-        url,
-      }
-
-      setNews(updateNews)
-      console.log(
-        '🚀 ~ file: TopNews.js ~ line 34 ~ ; ~ updateNews',
-        updateNews
-      )
+      setNewsList(data)
     })()
   }, [])
 
-  if (!news) {
+  if (!newsList) {
     return <span>Loading...</span>
   }
-  return 'data'
+
+  return newsList.map((news) => <Item news={news} />)
 }
