@@ -2,18 +2,17 @@ import { getDataById } from './getDataById'
 
 const needle = require('needle')
 
-export const getIds = async () => {
+export const getIds = async (stories) => {
   try {
     const responseId = await needle(
       'get',
-      'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty',
+      `https://hacker-news.firebaseio.com/v0/${stories}.json?print=pretty`,
       { json: true }
     )
     const getDataPromises = responseId.body
-      .slice(0, 30)
+      .slice(0, 25)
       .map((el) => getDataById(el))
     const newsData = await Promise.all(getDataPromises)
-    console.log('🚀 ~ file: getIds.js ~ line 16 ~ getIds ~ newsData', newsData)
 
     return newsData
   } catch (error) {

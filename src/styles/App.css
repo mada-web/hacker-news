@@ -1,41 +1,54 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .ui.items > .item a {
   color: #000;
+  font-size: 12pt;
+}
+.ui.items > .item .price {
+  font-size: 10pt;
+}
+.ui.small.header {
+  margin: 0;
+}
+
+.ui.header:first-child {
+  margin-top: 0;
+}
+.ui.header .content a {
+  color: #000;
+  font-size: 10pt;
+
+  line-height: 12px;
+}
+
+.icon a {
+  color: #000;
+}
+.ui.small.block.header {
+  background: #ff6600;
+  border: none;
+  border-radius: 0;
+  padding: 0.4rem 17rem;
+}
+.hacker .news .icon a {
+  color: #fff;
+}
+
+.ui.container {
+  padding-top: 0.5rem;
+  background-color: #f6f6ef;
+  margin-left: 0rem !important;
+}
+.story_container {
+  background-color: #f6f6ef;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 84%;
+  padding-top: 0.5rem;
+}
+.ui.items {
+  padding-left: -30rem;
 }

@@ -6,7 +6,7 @@ import {
 import * as timeago from 'timeago.js'
 
 const Item = (props) => {
-  const { by, score, time, title, url, descendants } = props.news
+  const { by, score, time, title, url, descendants, id } = props.news
   const timeAgo = timeago.format(time)
 
   return (
@@ -15,13 +15,16 @@ const Item = (props) => {
         <ItemSemantic>
           <ItemSemantic.Content>
             <ItemSemantic.Header>
-              <a href={url}>{title}</a>
+              <a href={url || `https://news.ycombinator.com/item?id=${id}`}>
+                {title}
+              </a>
             </ItemSemantic.Header>
             <ItemSemantic.Meta>
               <span className="price">
                 {score} points by{' '}
                 <a href={`https://news.ycombinator.com/user?id=${by}`}>{by}</a>{' '}
-                | {timeAgo} | {descendants} comments
+                | {timeAgo} |{' '}
+                {descendants ? <span>{descendants} comments</span> : ''}
               </span>
             </ItemSemantic.Meta>
           </ItemSemantic.Content>
